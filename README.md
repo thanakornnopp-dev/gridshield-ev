@@ -2,7 +2,9 @@
 > **Competition:** IEEE PES 5-Minute Student Project Pitch (5MSPP) Competition 2027  
 > **Host:** IEEE Power & Energy Society (Thailand Chapter) & Electricity Generating Authority of Thailand (EGAT / กฟผ.)  
 > **Team:** Faculty of Engineering, Thammasat University (TSE)  
-> **Target:** 1st Prize Championship (40,000 THB) @ Auditorium, 50th Anniversary EGAT Building
+> **Target:** 1st Prize Championship (40,000 THB) @ Auditorium, 50th Anniversary EGAT Building  
+> **🌐 Live Interactive Web Portal:** [https://thanakornnopp-dev.github.io/gridshield-ev/](https://thanakornnopp-dev.github.io/gridshield-ev/)  
+> **📦 GitHub Repository:** [https://github.com/thanakornnopp-dev/gridshield-ev](https://github.com/thanakornnopp-dev/gridshield-ev)
 
 ---
 
