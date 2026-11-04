@@ -63,9 +63,10 @@
         </div>
       </div>
       <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
-        <a href="#rosetta" class="hover:text-sky-400 transition">💡 โยธา vs ไฟฟ้า (ภาษาเข้าใจง่าย)</a>
-        <a href="#simulator" class="hover:text-sky-400 transition">🎮 Interactive Simulator</a>
+        <a href="#rosetta" class="hover:text-sky-400 transition">💡 โยธา vs ไฟฟ้า</a>
+        <a href="#simulator" class="hover:text-sky-400 transition">🎮 Simulator</a>
         <a href="#math" class="hover:text-sky-400 transition">📐 สูตร IEEE C57.91</a>
+        <a href="#deep-tech" class="hover:text-amber-400 transition font-bold">🔬 วิศวกรรมเชิงลึก 6 เสาหลัก</a>
         <a href="#pitch" class="hover:text-sky-400 transition">⏱️ สคริปต์ 5 นาที</a>
         <a href="#qa" class="hover:text-sky-400 transition">🎯 โพยตอบกรรมการ</a>
       </nav>
@@ -345,7 +346,140 @@
     </div>
   </section>
 
-  <!-- SECTION 4: 5-Minute Pitch Script & Teleprompter -->
+  <!-- SECTION: Deep Technical Specs (6 เสาหลักวิศวกรรมเชิงลึก) -->
+  <section id="deep-tech" class="py-16 px-6 max-w-6xl mx-auto border-b border-slate-800">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold uppercase tracking-wider text-amber-400 px-3 py-1 bg-amber-500/10 rounded-full border border-amber-500/20">Deep Engineering Masterclass</span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-3">🔬 6 เสาหลักวิศวกรรมเชิงลึก (The 6 Deep Pillars)</h2>
+      <p class="text-slate-400 mt-2 max-w-3xl mx-auto">
+        เนื้อหาเทคนิคเชิงลึกที่ทุกคนในทีมต้องเข้าใจอย่างถ่องแท้ เพื่อตอบข้อซักถามและไล่ต้อนของกรรมการสายไฟฟ้า IEEE และ กฟผ.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Pillar 1 -->
+      <div class="glass-card p-6 rounded-2xl border-t-4 border-sky-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-sky-400 px-2.5 py-0.5 rounded bg-sky-950 border border-sky-800">PILLAR 1 : THERMAL DYNAMICS</span>
+            <span class="text-xs text-slate-500">IEEE C57.91 Annex G</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">1. ตัวแบบความร้อนเชิงอนุพันธ์ (Euler's Discretization)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            หม้อแปลงมีความจุความร้อนสูง น้ำมันหลายร้อยลิตรร้อนช้าตามค่าคงที่เวลา <strong class="text-sky-300">&tau;<sub>TO</sub> &approx; 2.5 - 3.5 ชม.</strong> ส่วนขดลวดทองแดงร้อนเร็ว <strong class="text-amber-300">&tau;<sub>W</sub> &approx; 5 - 10 นาที</strong>
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-sky-300 mb-3 overflow-x-auto">
+            &theta;<sub>TO</sub>(t + &Delta;t) = &theta;<sub>TO</sub>(t) + [(&Delta;&theta;<sub>TO,U</sub> - (&theta;<sub>TO</sub>(t) - &theta;<sub>A</sub>)) / &tau;<sub>TO</sub>] &times; &Delta;t
+          </div>
+          <p class="text-xs text-slate-400">
+            <strong>Key Insight:</strong> โค้ดในกล่อง Edge Controller ทำการคำนวณแบบ Numerical Integration ทุกๆ &Delta;t = 1 วินาที ทำให้พยากรณ์อุณหภูมิล่วงหน้าได้แม่นยำ ไม่ใช่แค่ดูสูตรสถิตทั่วไป
+          </p>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="glass-card p-6 rounded-2xl border-t-4 border-amber-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-amber-400 px-2.5 py-0.5 rounded bg-amber-950 border border-amber-800">PILLAR 2 : SENSING & HARMONICS</span>
+            <span class="text-xs text-slate-500">ADC 16-bit True RMS</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">2. วงจรตรวจวัดและการคำนวณ True RMS</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            กระแสไฟฟ้าของรถ EV มีวงจรแปลงไฟ Rectifier ที่ก่อให้เกิดฮาร์มอนิกกระแส (<strong class="text-amber-300">THD<sub>i</sub> &approx; 5 - 12%</strong>) คลื่นรูปทรงจึงไม่ใช่ Sine Wave บริสุทธิ์
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-amber-300 mb-3 overflow-x-auto">
+            I<sub>RMS</sub> = &radic;[ (1 / N) &Sigma; i<sub>k</sub><sup>2</sup> ] &bull; Sampling: 860 sps
+          </div>
+          <p class="text-xs text-slate-400">
+            <strong>Key Insight:</strong> เราใช้ Split-Core CT คล้องสายไฟ 3 เฟสและสายนิวทรัลแบบ Non-invasive แปลงผ่าน ADC 16-bit (ADS1115) คำนวณ True RMS เพื่อไม่ให้ค่ากระแสโหลดเพี้ยน
+          </p>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="glass-card p-6 rounded-2xl border-t-4 border-red-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-red-400 px-2.5 py-0.5 rounded bg-red-950 border border-red-800">PILLAR 3 : 3-PHASE UNBALANCE</span>
+            <span class="text-xs text-slate-500">Neutral Current I_N</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">3. การเกลี่ยโหลดไม่สมดุล 3 เฟส (Phase-Aware Balancing)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            รถ EV ชาร์จตามบ้านเป็น Single-Phase 230V หากบ้านในเฟส A เสียบชาร์จ 5 คัน แต่เฟส B, C ไม่มี จะเกิดความไม่สมดุลรุนแรง ทำให้สายนิวทรัล (<strong class="text-red-400">I<sub>N</sub> = I<sub>A</sub> + I<sub>B</sub> + I<sub>C</sub> &ne; 0</strong>) ร้อนจัดจนไหม้
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-red-300 mb-3 overflow-x-auto">
+            %Unbalance = [MaxDev(I<sub>A</sub>, I<sub>B</sub>, I<sub>C</sub>) / I<sub>avg</sub>] &times; 100% &le; 10%
+          </div>
+          <p class="text-xs text-slate-400">
+            <strong>Key Insight:</strong> GridShield รู้เฟสของแต่ละบ้าน หากเฟส A ร้อน ระบบจะสั่งลดเฉพาะรถในเฟส A เหลือ 16A ส่วนเฟส B, C ยังชาร์จ 32A ได้เต็มสปีด
+          </p>
+        </div>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="glass-card p-6 rounded-2xl border-t-4 border-emerald-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-emerald-400 px-2.5 py-0.5 rounded bg-emerald-950 border border-emerald-800">PILLAR 4 : OCPP PROTOCOL</span>
+            <span class="text-xs text-slate-500">OCPP 1.6J / ISO 15118</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">4. โปรโตคอลสั่งการตู้ชาร์จ (Smart Charging Profile)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            ระบบไม่ได้คุยกับตัวรถตรงๆ แต่สั่งการไปยังตู้ชาร์จ Home Wallbox ผ่านโปรโตคอลมาตรฐานโลก <strong class="text-emerald-400">OCPP 1.6J</strong> ด้วยข้อความ JSON ผ่าน WebSocket
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-emerald-300 mb-3 overflow-x-auto">
+            Action: "SetChargingProfile" &rarr; limit: 16.0 (A) &rarr; PWM Duty Cycle
+          </div>
+          <p class="text-xs text-slate-400">
+            <strong>Key Insight:</strong> ตู้ชาร์จจะลดสัญญาณ PWM บนสาย Control Pilot (CP) ทำให้รถยนต์ทุกยี่ห้อ (BYD, Tesla, MG, GWM) ปรับลดกระแสชาร์จลงตามคำสั่งโดยอัตโนมัติ
+          </p>
+        </div>
+      </div>
+
+      <!-- Pillar 5 -->
+      <div class="glass-card p-6 rounded-2xl border-t-4 border-purple-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-purple-400 px-2.5 py-0.5 rounded bg-purple-950 border border-purple-800">PILLAR 5 : PROTECTION COORDINATION</span>
+            <span class="text-xs text-slate-500">Drop-out & HRC Coexistence</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">5. การประสานงานกับฟิวส์ของการไฟฟ้า (Protection Coordination)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            Drop-out Fuse ด้าน 22kV และ HRC Fuse ด้านแรงต่ำมีหน้าที่ตัดไฟฟ้าลัดวงจรระดับ kA (<strong class="text-purple-300">I<sub>sc</sub> &gt; 5,000A</strong>) ในเสี้ยววินาที (&lt; 0.1s)
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-purple-300 mb-3 overflow-x-auto">
+            GridShield: Thermal Overload (100-130%) &bull; Fuses: Short Circuit (&gt;500%)
+          </div>
+          <p class="text-xs text-slate-400">
+            <strong>Key Insight:</strong> GridShield เป็น Preventive Software Optimizer คอยดูแลโซนความร้อนสะสมที่ฟิวส์ไม่ยอมขาด จึงทำงานเสริมกันโดยไม่ตีกับระบบป้องกันเดิมของการไฟฟ้า
+          </p>
+        </div>
+      </div>
+
+      <!-- Pillar 6 -->
+      <div class="glass-card p-6 rounded-2xl border-t-4 border-cyan-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-cyan-400 px-2.5 py-0.5 rounded bg-cyan-950 border border-cyan-800">PILLAR 6 : POWER QUALITY & PF</span>
+            <span class="text-xs text-slate-500">Apparent Power S (kVA)</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">6. ตัวประกอบกำลังและกำลังไฟฟ้ารีแอกทีฟ (PF & Reactive Power)</h3>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            ช่วงที่รถหรี่กระแสชาร์จต่ำกว่า 10A วงจร PFC อาจทำให้ค่า <strong class="text-cyan-300">Power Factor ดรอปแตะ 0.85</strong> ก่อให้เกิดกำลังไฟฟ้ารีแอกทีฟ ($Q$) เพิ่มขึ้น
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-xl text-xs font-mono text-cyan-300 mb-3 overflow-x-auto">
+            S = &radic;[ P<sup>2</sup> + Q<sup>2</sup> ] &le; S<sub>rated</sub> (250 kVA) &bull; PF &ge; 0.90
+          </div>
+          <p class="text-xs text-slate-400">
+            <strong>Key Insight:</strong> เราไม่ได้ตรวจแค่ค่ากำลังจริง (kW) แต่คำนวณกำลังปรากฏ (kVA) รวมทั้ง Real และ Reactive Power เพื่อให้หม้อแปลงไม่หลุดพิกัดในทุกสภาวะ
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
   <section id="pitch" class="py-16 px-6 max-w-5xl mx-auto border-b border-slate-800">
     <div class="text-center mb-10">
       <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 px-3 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20">Presentation Masterclass</span>
